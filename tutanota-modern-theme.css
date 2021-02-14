@@ -12,6 +12,15 @@
         --mail-item-color: #DDDDDD;
         --mail-heading-color: #fff;
         --mail-body-color: #fff;
+        --gradient: linear-gradient(to right, #1488CC, #2B32B2);
+    }
+
+    .folder-column > div > button:hover .text-ellipsis {
+        color: var(--lighter-main-bg-color) !important;
+    }
+
+    #mail-body a {
+        color: #76cbda !important;
     }
 }
 
@@ -19,16 +28,65 @@
     :root {
         --main-bg-color: #fff;
         --lighter-main-bg-color: #d5d5d5;
-        --darker-main-bg-color: #f4f4f4;
-        --even-darker-main-bg-color: #dbdbdb;
-        --accent-color: #00f9c5;
-        --darker-accent-color: #009f7e;
-        --even-darker-accent-color: #00725a;
-        --scrollbar-color: #373737;
+        --darker-main-bg-color: #f9f9f9;
+        --even-darker-main-bg-color: #F2F2F2;
+        --accent-color: #7B8FDD;
+        --darker-accent-color: #556ed3;
+        --even-darker-accent-color: #3452cb;
+        --scrollbar-color: var(--accent-color);
         --mail-item-bg: #f4f4f4;
         --mail-item-color: #2b2b2b;
         --mail-heading-color: #2b2b2b;
         --mail-body-color: #000;
+        /*--gradient: linear-gradient(to right, #4BD2FB, #34aedd);*/
+        --gradient: var(--accent-color);
+    }
+
+    body * {
+        color: #222 !important;
+    }
+
+    .row-selected {
+        border-color: var(--accent-color) !important;
+    }
+
+    .folder-row.row-selected * {
+        color: #fff !important;
+    }
+
+    .icon {
+        fill: #000 !important;
+    }
+    .icon.selected {
+        fill: var(--accent-color) !important;
+    }
+
+    drawer-menu .icon {
+        fill: #111 !important;
+    }
+
+    .folder-column > div > button {
+        border-color: var(--accent-color) !important;
+    }
+    
+    .folder-column > div > button .text-ellipsis{
+        color: var(--accent-color) !important;
+    }
+
+    .folder-column > div > button:hover * {
+        color: #fff !important;
+    }
+
+    #mail-body a {
+        color: var(--accent-color) !important;
+    }
+    
+    .list-row > .flex::before {
+        color: #fff !important;
+    }
+    
+    .header-nav .logo svg > path{
+        fill: var(--accent-color) !important;
     }
 }
 
@@ -45,15 +103,11 @@ drawer-menu {
     border: none;
 }
 
-.folder-column [title="Neue E-Mail"]:hover {
+.folder-column > div > button:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color) !important;
     filter: none !important;
     opacity: 1;
-}
-
-.folder-column [title="Neue E-Mail"]:hover .text-ellipsis {
-    color: var(--lighter-main-bg-color) !important;
 }
 
 
@@ -121,8 +175,8 @@ ul.list-alternate-background {
     .list-row .flex-no-grow.no-shrink {
         display: none;
     }
-    
-    .view-column:nth-child(4){
+
+    .view-column:nth-child(4) {
         background: var(--main-bg-color) !important;
     }
 }
@@ -171,14 +225,14 @@ ul.list-alternate-background {
         scrollbar-width: thin;
     }
 
-    .folder-column button[title="Neue E-Mail"] {
+    .folder-column > div > button {
         position: fixed;
         top: 70px;
         width: 225px;
         transition: all 250ms;
     }
 
-    .bg-transparent[title="Neue E-Mail"] {
+    .folder-column > div > button {
         z-index: 100;
     }
 
@@ -309,7 +363,7 @@ ul.list-alternate-background {
         align-items: center;
         font-weight: bold;
         /*background: url("https://upload.wikimedia.org/wikipedia/commons/f/fb/Google-plus-circle-icon-png.png");*/
-        background: linear-gradient(to right, #1488CC, #2B32B2);
+        background: var(--gradient);
         /*background: linear-gradient(to right, #2a6c5f, #00f9c5);*/
         border-radius: 50px;
         background-size: cover;
@@ -398,9 +452,6 @@ ul.list-alternate-background {
         color: var(--mail-body-color);
     }
 
-    #mail-body a {
-        color: #76cbda !important;
-    }
 
     .nav-bar-spacer {
         display: none;
@@ -522,15 +573,19 @@ ul.list-alternate-background {
     }
 }
 
-@media only screen and (min-width: 899px){
-    #mail-viewer{
-        padding: 0 20px !important;
+@media only screen and (min-width: 899px) {
+    #mail-viewer {
+        padding: 20px !important;
         box-sizing: border-box;
     }
 }
 
-.list-container:hover{
+.list-container:hover {
     scrollbar-width: thin !important;
+}
+
+#mail-viewer .left {
+    flex-basis: 100%;
 }
 
 #mail-viewer .margin-are-inset-lr {
@@ -562,7 +617,7 @@ ul.list-alternate-background {
 
 
 #mail-body {
-    padding-top: 3vmin;
+    /*padding-top: 3vmin;*/
 }
 
 #mail-body * {
