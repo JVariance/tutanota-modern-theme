@@ -68,8 +68,8 @@
     .folder-column > div > button {
         border-color: var(--accent-color) !important;
     }
-    
-    .folder-column > div > button .text-ellipsis{
+
+    .folder-column > div > button .text-ellipsis {
         color: var(--accent-color) !important;
     }
 
@@ -80,12 +80,12 @@
     #mail-body a {
         color: var(--accent-color) !important;
     }
-    
+
     .list-row > .flex::before {
         color: #fff !important;
     }
-    
-    .header-nav .logo svg > path{
+
+    .header-nav .logo svg > path {
         fill: var(--accent-color) !important;
     }
 }
@@ -276,15 +276,35 @@ ul.list-alternate-background {
         box-shadow: none;
         /*height: 75px;*/
         height: 50px;
-        margin-top: 5px;
+        /*margin-top: 5px;*/
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
     }
 
-    .header-right {
+    .header-left {
+        position: unset;
         left: unset;
-        right: 15px;
+        right: unset;
+        top: unset;
+        bottom: unset;
+    }
+    
+    .header-right {
+        position: unset;
+        left: unset;
+        top: unset;
+        right: unset;
+        display: flex;
+        gap: 0.5rem;
+        /*right: 15px;*/
         /*top: 14px;*/
     }
 
+    .header-right > :is(.nav-bar, .flex){
+        display: contents;
+    }
+    
     .header-right > .nav-bar {
         border-radius: 100px;
         padding: 5px 20px;
@@ -475,47 +495,59 @@ ul.list-alternate-background {
         scrollbar-width: none;
     }
 
-    .folder-row:first-child,
-    .folder-row:nth-child(7) {
+    /*.folder-row:first-child,
+    .folder-row:nth-child(8) {*/
+    .folder-row:first-child {
         margin-top: 20px;
     }
 
-    .folder-row:nth-child(7) {
+    .folder-row:nth-child(8) {
         width: 100%;
         padding-right: 0;
         margin-bottom: 5px;
     }
 
-    .folder-row:nth-child(7) small {
+    .folder-row:nth-child(8) small {
         font-size: 15px;
     }
 
-    .folder-row:nth-child(7) button .button-content {
+    .folder-row:nth-child(8) button .button-content {
         padding-right: 0;
         justify-content: flex-start !important;
     }
 
-    .folder-row:nth-child(7) button .button-content svg {
+    .folder-row:nth-child(8) button .button-content svg {
         margin-right: 10px;
     }
 
-    .folder-row:not(:nth-child(7)) .icon svg {
+    .folder-row:not(:nth-child(8)) .icon svg {
         width: 20px;
         margin-right: 4px;
     }
 
-    .folder-row:nth-child(n + 8) {
+    .folder-row:nth-child(n + 2) {
         padding-left: 15px;
     }
 
-    .folder-row:nth-child(n + 8) .b {
+    .folder-row:nth-child(n + 2) .b {
         font-weight: normal;
     }
 
-    .folder-row:nth-child(n + 8) .icon {
+    .sidebar-section.mb .sidebar-section .folder-row:nth-child(n + 2) .icon {
         display: none;
     }
 
+    /*.sidebar-section.mb .sidebar-section .folder-row:nth-child(n+2) .icon:before{
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg class='w-6 h-6' fill='gray' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'%3E%3C/path%3E%3C/svg%3E");
+    }
+    
+    .sidebar-section.mb .sidebar-section .folder-row .icon svg{
+        display: none;
+    }*/
     .folder-counter {
         left: calc(100% - 35px);
         top: calc(50% - 10px);
@@ -622,4 +654,11 @@ ul.list-alternate-background {
 
 #mail-body * {
     background-color: transparent !important;
+}
+
+#overlay{
+    display: contents !important;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
