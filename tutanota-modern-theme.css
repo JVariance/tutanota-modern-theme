@@ -261,12 +261,12 @@ ul.list-alternate-background {
         width: 95%;
     }
 
-    .folders .row-selected {
+    .folder-column .row-selected {
         /* old: #76cbda */
         background-color: var(--accent-color);
     }
 
-    .folders .row-selected * {
+    .folder-column .row-selected * {
         color: var(--main-bg-color);
         fill: var(--main-bg-color);
     }
@@ -548,22 +548,26 @@ ul.list-alternate-background {
     .sidebar-section.mb .sidebar-section .folder-row .icon svg{
         display: none;
     }*/
-    .folder-counter {
-        left: calc(100% - 35px);
-        top: calc(50% - 10px);
-        background-color: var(--even-darker-accent-color);
-        padding: 4px;
-        width: 20px;
-        height: 20px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 14px;
-        color: var(--accent-color) !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .counter-badge {
+        position: absolute;
+        left: calc(100% - 35px) !important;
+        top: calc(50% - 10px) !important;
+        padding: 4px !important;
+        width: 20px !important;
+        height: 20px !important;
+        border-radius: 20px !important;
+        font-weight: bold !important;
+        font-size: clamp(12px, .75rem, 18px) !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
-
+    
+    .folder-row.row-selected .counter-badge{
+        background-color: var(--even-darker-accent-color) !important;
+        color: var(--accent-color) !important;
+    }
+    
     .folder-column {
         width: 100%;
     }
@@ -641,6 +645,19 @@ ul.list-alternate-background {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#mail-viewer .header > div:first-child{
+    height: max-content;
+    min-height: unset;
+    margin-bottom: 0.5rem;
+}
+
+#mail-viewer .header > div:first-child * {
+    height: max-content !important;
+    padding: 0 !important;
 }
 
 #mail-viewer .header hr {
@@ -648,8 +665,9 @@ ul.list-alternate-background {
 }
 
 
-#mail-body {
-    /*padding-top: 3vmin;*/
+.info-banner{
+    border-radius: 5px;
+    border-width: 0.1rem;
 }
 
 #mail-body * {
