@@ -664,6 +664,9 @@ ul.list-alternate-background {
     display: none;
 }
 
+#mail-viewer > div:nth-of-type(2) {
+    background: transparent;
+}
 
 .info-banner{
     border-radius: 5px;
